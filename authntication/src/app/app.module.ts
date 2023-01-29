@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ModalModule } from './_modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { AuthInterceptorInterceptor } from './services/auth-interceptor.intercep
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ModalModule,
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptorInterceptor,multi:true}
