@@ -58,10 +58,10 @@ form.sign-in-form {
   max-width: 380px;
   width: 100%;
   background-color: #f0f0f0;
-  margin: 10px 0;
+  margin: 15px 0;
   height: 55px;
   border-radius: 55px;
-  display: grid;
+  // display: grid;
   grid-template-columns: 15% 85%;
   padding: 0 0.4rem;
   position: relative;
@@ -73,6 +73,7 @@ form.sign-in-form {
   color: #acacac;
   transition: 0.5s;
   font-size: 1.1rem;
+  padding: 0 10px;
 }
 
 .input-field input {
@@ -83,6 +84,9 @@ form.sign-in-form {
   font-weight: 600;
   font-size: 1.1rem;
   color: #333;
+}
+.input-field span{
+  color: #ff000f;
 }
 .transformClass{
   margin-top: 0 !important;
@@ -222,7 +226,9 @@ form.sign-in-form {
 .right-panel .content {
   transform: translateX(800px);
 }
-
+.invalid{
+  border: 1px solid red;
+}
 /* ANIMATION */
 
 .container.signUpMode:before {
