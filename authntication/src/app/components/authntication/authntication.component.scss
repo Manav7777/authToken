@@ -85,12 +85,12 @@ form.sign-in-form {
   font-size: 1.1rem;
   color: #333;
 }
-.input-field span{
+.input-field span {
   color: #ff000f;
 }
-.transformClass{
+.transformClass {
   margin-top: 0 !important;
-  transform: translate(-50%,-40%) !important;
+  transform: translate(-50%, -40%) !important;
 }
 
 .input-field input::placeholder {
@@ -128,9 +128,11 @@ form.sign-in-form {
   border-color: #4481eb;
 }
 
-.btn {
-  width: 150px;
+.bg-blue {
   background-color: #5995fd;
+}
+.button {
+  width: 150px;
   border: none;
   outline: none;
   height: 49px;
@@ -143,7 +145,7 @@ form.sign-in-form {
   transition: 0.5s;
 }
 
-.btn:hover {
+.button:hover {
   background-color: #4d84e2;
 }
 .panels-container {
@@ -212,7 +214,7 @@ form.sign-in-form {
   padding: 0.7rem 0;
 }
 
-.btn.transparent {
+.button.transparent {
   margin: 0;
   background: none;
   border: 2px solid #fff;
@@ -226,8 +228,9 @@ form.sign-in-form {
 .right-panel .content {
   transform: translateX(800px);
 }
-.invalid{
+.invalid {
   border: 1px solid red;
+  background-color: #fac0c4;
 }
 /* ANIMATION */
 
@@ -327,7 +330,7 @@ form.sign-in-form {
     padding: 0.5rem 0;
   }
 
-  .btn.transparent {
+  .button.transparent {
     width: 110px;
     height: 35px;
     font-size: 0.7rem;

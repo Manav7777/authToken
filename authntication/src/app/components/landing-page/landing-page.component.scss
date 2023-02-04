@@ -1,0 +1,33 @@
+.landing-wrapper{
+    width: 100%;
+    height: 100vh;
+    background: url("../../../assets/Img/landing.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    a{
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        border: 2px solid #fff;
+        border-radius: 35px;
+        margin-top: 3px;
+        &:hover{
+            background-color: #5189e9;
+            border: 2px solid #4481eb;
+            transition: 0.5s ease;
+        }
+    }
+    
+}
+.wrapper{
+    padding: 20px;
+    /* position: absolute; */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    align-items: center;
+}

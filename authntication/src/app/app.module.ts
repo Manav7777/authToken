@@ -4,16 +4,22 @@ import { ModalModule } from './_modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthnticationComponent } from './component/authntication/authntication.component';
+import { AuthnticationComponent } from './components/authntication/authntication.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS,HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorInterceptor } from './services/auth-interceptor.interceptor';
+import { HomeComponent } from './components/home/home.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { LoaderComponent } from './components/common/loader/loader.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthnticationComponent,
+    HomeComponent,
+    LandingPageComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
