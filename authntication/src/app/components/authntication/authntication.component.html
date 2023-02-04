@@ -21,7 +21,7 @@
                             <span *ngIf="l.password.errors.maxlength">Password must be 10 character long</span>
                         </div>
                     </div>
-                    <input type="submit" (click)="submit()" value="Login" class="btn solid" />
+                    <input type="submit" (click)="submit()" value="Login" class="button bg-blue solid" />
                     <p class="social-text">Or Sign in with social platforms</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
@@ -62,10 +62,10 @@
                         <div *ngIf="submitted && r.password.errors">
                             <span *ngIf="r.password.errors.required && submitted">Password is required</span>
                             <span *ngIf="r.password.errors.minlength">Password must be at least 6 characters</span>
-                            <span *ngIf="r.password.errors.maxlength">Password must be 10 character long</span>
+                            <span *ngIf="r.password.errors.maxlength">Password must be 8 character long</span>
                         </div>
                     </div>
-                    <input type="submit" (click)="submit()" class="btn" value="Sign up" />
+                    <input type="submit" (click)="submit()" class="button bg-blue" value="Sign up" />
                     <p class="social-text">Or Sign up with social platforms</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
@@ -93,7 +93,7 @@
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
                         ex ratione. Aliquid!
                     </p>
-                    <button (click)="singUpMode()" class="btn transparent" id="sign-up-btn">
+                    <button (click)="singUpMode()" class="button transparent" id="sign-up-btn">
                         Sign up
                     </button>
                 </div>
@@ -106,7 +106,7 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
                         laboriosam ad deleniti.
                     </p>
-                    <button class="btn transparent" (click)="singUpMode()" id="sign-in-btn">
+                    <button class="button  transparent" (click)="singUpMode()" id="sign-in-btn">
                         Sign in
                     </button>
                 </div>
@@ -115,7 +115,7 @@
         </div>
     </div>
 </div>
-
 <jw-modal id="1">
     <p>{{message}}</p>
+    <button class="btn btn-danger" (click)="close()">Close</button>
 </jw-modal>

@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="row">
+        <div *ngFor="let user of userDetails">
+            <h1>Welcome {{ user.name  }}</h1>
+            <hr>
+            <button (click)="logout()" class="btn btn-dark">logout</button>
+        </div>
+    </div>
+</div>

@@ -6,8 +6,11 @@ import {
   Validators,
   FormBuilder,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import Route from 'src/app/route';
 import { LoginTokenService } from 'src/app/services/login-token.service';
 import { ModalService } from 'src/app/_modal';
+import { LoaderService } from '../common/loader/loader.service';
 
 @Component({
   selector: 'app-authntication',
@@ -21,10 +24,13 @@ export class AuthnticationComponent implements OnInit {
   submitted = false;
   loginsubmitted = false;
   message: any;
+  id: any = '2';
   constructor(
     private loginService: LoginTokenService,
     private formBuilder: FormBuilder,
-    private model: ModalService
+    private model: ModalService,
+    private router: Router,
+    private loader:LoaderService
   ) {}
 
   ngOnInit(): void {
@@ -34,13 +40,16 @@ export class AuthnticationComponent implements OnInit {
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(10),
+        Validators.maxLength(8),
       ]),
     });
     this.fb = this.formBuilder.group({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
     });
+    if (localStorage.getItem('user')) {
+      this.router.navigate(['/home']);
+    }
   }
   submit() {
     if (!this.isSignUp) {
@@ -55,18 +64,21 @@ export class AuthnticationComponent implements OnInit {
         this.loginService.loginUser(user).subscribe(
           (res: any) => {
             if (res) {
-              console.log('res', res);
+              this.loader.showLoader();
               localStorage.setItem('token', JSON.stringify(res.token));
-              this.model.open('1');
+              localStorage.setItem('user', JSON.stringify(res.user));
+              this.router.navigate([Route.HOME]);
+              this.id = '1';
+              this.model.open(this.id);
               this.message = res.msg;
             }
+            this.loader.hideLoader();
+            this.id = '';
           },
           (err) => {
             if (err) console.log(err);
-            console.log('Success-login');
           }
         );
-        console.log('info', this.loginService.resMessage);
       }
     } else {
       this.submitted = true;
@@ -79,17 +91,26 @@ export class AuthnticationComponent implements OnInit {
           password: this.register.get('password').value,
         };
         this.loginService.registerUser(user);
+        this.id = '2';
+        this.model.open('2');
+        this.message = 'You have sucessfully register!';
       }
     }
   }
   singUpMode() {
-    console.log('worked');
     this.isSignUp = !this.isSignUp;
+    this.loginsubmitted = false;
+    this.submitted = false;
+    this.register.reset();
+    this.fb.reset();
   }
   get r(): { [key: string]: AbstractControl } {
     return this.register.controls;
   }
   get l(): { [key: string]: AbstractControl } {
     return this.fb.controls;
+  }
+  close() {
+    this.model.close('1');
   }
 }
